@@ -39,9 +39,11 @@ class Block:
 
          self.hash = str(bin(int_value))[2:]
 
-         if self.hash[4] == "0":
-            self.approved = True
-   
+
+         if self.hash[0] == "1":
+          if self.hash[1] == "1":   
+               self.approved = True
+         
       
       #Add block broadcasting and chianing here
    
