@@ -5,7 +5,7 @@ import random
 
 pool = Pool()
 
-block = Block("0000", "1", pool)
+block = Block("dn", "uhkuyibkj", pool)
 
 print(pool.queue)
 

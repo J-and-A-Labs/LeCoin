@@ -11,7 +11,7 @@ class Block:
         self.prevHash = prevHash
         self.blockId = blockId
         self.pool = pool
-        self.calculateIncompleteHash("2")
+        self.calculateIncompleteHash("ygjkgjhh")
         pool.append(self)
 
 
@@ -37,9 +37,9 @@ class Block:
 
          int_value = int(hash, base=16)
 
-         self.hash = str(bin(int_value))[2:]
+         self.hash = str(bin(int_value))[4:]
 
-         if hash[0] == "0":
+         if self.hash[0] == "0":
             self.approved = True
    
       
