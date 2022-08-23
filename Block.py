@@ -37,9 +37,9 @@ class Block:
 
          int_value = int(hash, base=16)
 
-         self.hash = str(bin(int_value))[4:]
+         self.hash = str(bin(int_value))[2:]
 
-         if self.hash[0] == "0":
+         if self.hash[4] == "0":
             self.approved = True
    
       
