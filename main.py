@@ -8,16 +8,18 @@ pool = Pool()
 block = Block("dn", "uhkuyibkj", pool)
 
 print(pool.queue)
-
-while not pool.queue[0].approved:
-    mine = input("Would you like to start mining?")
-    if mine == "y":
+mine = input("Would you like to  mine?")
+if mine == "y":
+    while not pool.queue[0].approved:
         pow = random.randint(1,1000)
         print(pow)
-        pool.queue[0].calculateHash(pow) 
+        calculate_hash = pool.queue[0].calculateHash(pow) 
         print(pool.queue[0].hash)
-    else:
-        print("Mining Cancelled.")
+        hash = calculate_hash
+else:
+    print("Mining Cancelled.")
 
-print(f"Proof of work has been done for Block with Id {block.blockId} with challenge number {pow}.")
+    
+
+print(f"Proof of work has been done for Block with:\nid: {block.blockId}\nhash: {hash}\nchallenge_number: {pow} ")
 

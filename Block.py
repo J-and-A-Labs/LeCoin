@@ -34,15 +34,12 @@ class Block:
    def calculateHash(self, ProofOfWork):
          encodedHash = (self.incompleteHash + str(ProofOfWork)).encode()
          hash = hashlib.sha256(encodedHash).hexdigest()
-
          int_value = int(hash, base=16)
-
          self.hash = str(bin(int_value))[2:]
-
-
          if self.hash[0] == "1":
           if self.hash[1] == "1":   
                self.approved = True
+               return self.hash
          
       
       #Add block broadcasting and chianing here
