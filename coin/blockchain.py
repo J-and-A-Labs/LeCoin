@@ -5,7 +5,7 @@ import json
 
 class Block:
 
-    def __init__(self, timestamp, transactions, prev_hash="0"):
+    def __init__(self, timestamp, transactions, prev_hash= "0"):
         self.prev_hash = prev_hash
         self.timestamp = timestamp
         self.transactions = transactions
