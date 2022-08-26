@@ -1,25 +1,26 @@
-from Block import Block
-from Pool import Pool
+from block import Block
+from pool import Pool
 import random
 
 
 pool = Pool()
 
-block = Block("dn", "uhkuyibkj", pool)
 
+transaction = Block.create_transaction(Block,"uwuad",pool)
+transaction = Block.create_transaction(Block,"asdasd",pool)
+transaction = Block.create_transaction(Block,"gdgdfg",pool)
+transaction = Block.create_transaction(Block,"fdgdfhfhd",pool)
 print(pool.queue)
+
+
+
+
 mine = input("Would you like to  mine?")
 if mine == "y":
-    while not pool.queue[0].approved:
-        pow = random.randint(1,1000)
-        print(pow)
-        calculate_hash = pool.queue[0].calculateHash(pow) 
-        print(pool.queue[0].hash)
-        hash = calculate_hash
+    print(Block().check_aprove())
 else:
     print("Mining Cancelled.")
 
-    
 
-print(f"Proof of work has been done for Block with:\nid: {block.blockId}\nhash: {hash}\nchallenge_number: {pow} ")
-
+print(
+    f"Proof of work has been done for Block with:\nid: {block.blockId}\nhash: {hash}\nchallenge_number: {pow} ")
