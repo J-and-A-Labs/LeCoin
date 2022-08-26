@@ -9,12 +9,13 @@ class Block:
         self.prev_hash = prev_hash
         self.timestamp = timestamp
         self.transactions = transactions
+        self.pow = 0
         self.hash = self.create_hash()
         self.aproved = False
 
     def create_hash(self):
         encodedIncompleteHash = (
-            str(self.prev_hash) + str(self.timestamp) + str(self.transactions)).encode()
+            str(self.prev_hash) + str(self.pow) + str(self.timestamp) + str(self.transactions)).encode()
         incompleteHash = hashlib.sha256(encodedIncompleteHash).hexdigest()
         int_value = int(incompleteHash, base=16)
         hash = str(bin(int_value))[2:]
@@ -22,7 +23,10 @@ class Block:
 
     def mine(self, mining_dificulty):
         while self.aproved is False:
-            if self.hash[:mining_dificulty] == "11":
+            self.pow += 1
+            self.hash = self.create_hash()
+            print(f"Guess_{self.pow}:{self.hash}\n")
+            if self.hash[:mining_dificulty] == "1111":  #note, when changing the difficulty, you might need to add or remove a 1
                 self.approved = True
                 return self.hash
 
@@ -31,7 +35,7 @@ class BlockChain:
 
     def __init__(self):
         self.chain = [self.genesis_block()]
-        self.difficulty = 1
+        self.difficulty = 4
         self.mine_reward = 69
         self.pending_transactions = []
 
@@ -79,7 +83,7 @@ print("\nHere are the pending_transactions.")
 LeCoin.get_pending_transactions()
 
 # mine the coin
-print("\nCoin is being mined.")
+print("\nCoin is being mined...")
 LeCoin.mine()
 
 # print the blockchain
