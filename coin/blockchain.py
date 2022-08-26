@@ -17,14 +17,14 @@ class Block:
             str(self.prev_hash) + str(self.timestamp) + str(self.transactions)).encode()
         incompleteHash = hashlib.sha256(encodedIncompleteHash).hexdigest()
         int_value = int(incompleteHash, base=16)
-        hash = str(bin(int_value))
+        hash = str(bin(int_value))[2:]
         return hash
 
     def mine(self, mining_dificulty):
         while self.aproved is False:
-            #if self.hash[:1] == "1":
-            self.approved = True
-            return self.hash
+            if self.hash[:mining_dificulty] == "11":
+                self.approved = True
+                return self.hash
 
 
 class BlockChain:
