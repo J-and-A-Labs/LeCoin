@@ -14,8 +14,7 @@ class Block:
         self.aproved = False
 
     def create_hash(self):
-        encodedIncompleteHash = (
-            str(self.prev_hash) + str(self.pow) + str(self.timestamp) + str(self.transactions)).encode()
+        encodedIncompleteHash = (str(self.prev_hash) + str(self.pow) + str(self.timestamp) + str(self.transactions)).encode()
         incompleteHash = hashlib.sha256(encodedIncompleteHash).hexdigest()
         int_value = int(incompleteHash, base=16)
         hash = str(bin(int_value))[2:]
