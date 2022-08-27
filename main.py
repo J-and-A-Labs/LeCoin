@@ -1,5 +1,5 @@
-from blockchain import BlockChain
-from transactions import Transaction
+from coin.blockchain import BlockChain
+from coin.transactions import Transaction
 
 
 

@@ -1,10 +1,10 @@
-from block import Block
-from transactions import Transaction
+from coin.block import Block
+from coin.transactions import Transaction
 import hashlib
 from time import time
 import json
-from chain import blockchain as bc
-from pending import pending
+from coin.chain import blockchain as bc
+from coin.pending import pending
 
 
 
@@ -17,7 +17,7 @@ class BlockChain:
         self.difficulty = 4
         self.mine_reward = 69
         self.pending_transactions = pending
-        self.chain.append([self.genesis_block(),0])
+        self.chain.append(self.genesis_block())
 
     def genesis_block(self):
         block = Block(time(), [], "0")

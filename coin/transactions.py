@@ -1,6 +1,6 @@
 import uuid
-from chain import blockchain as bc
-from pending import pending
+from coin.chain import blockchain as bc
+from coin.pending import pending
 
 class Transaction:
 
@@ -12,13 +12,7 @@ class Transaction:
         self.amount = amount
         self.transaction_string = self.sender + str(self.amount) + self.reciver + str(self.id)
     
-    def findBlockID():
-        pendingTransactions = pending
-        blockchain = bc
-
-        currentBlockID = block[-1][1]
-
-        self.blockID = currentBlockID + 1
+    
 
 
 
