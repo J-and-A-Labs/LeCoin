@@ -20,19 +20,37 @@ class BlockChain:
         self.chain.append(self.genesis_block())
 
     def genesis_block(self):
-        block = Block(time(), [], "0")
-        block_hash = block.create_hash()
-        return block_hash
+        block = Block(len(bc),time(), [], "0")
+        chain = {
+                "index": block.index,
+                "timestamp": block.timestamp,
+                "transactions": block.transactions,
+                "previous_hash": block.prev_hash,
+                "block_hash": block.block_hash,
+        }
+        return chain
 
     def get_recent_block(self):
-        return self.chain[len(self.chain) - 1]
+        if (self.chain[len(self.chain) - 1]) is None:
+            return [(self.chain[len(self.chain) - 1])]
+        else:
+            chain =  (self.chain[len(self.chain) - 1])
+            return chain["block_hash"]
+
 
     def mine(self):
-        block = Block(time(), self.pending_transactions, self.get_recent_block)
+        block = Block(len(bc),time(), self.pending_transactions, self.get_recent_block())
         block_hash = block.mine(self.difficulty)
         print(f"Coin has been mined.\nHash:{block_hash}\n")
         print(block_hash)
-        self.chain.append(block_hash)
+        chain = {
+                "index": block.index,
+                "timestamp": block.timestamp,
+                "transactions": block.transactions,
+                "previous_hash": block.prev_hash,
+                "block_hash": block.block_hash,
+        }
+        self.chain.append(chain)
         self.pending_transactions = []
 
     def create_transaction(self, transaction):
