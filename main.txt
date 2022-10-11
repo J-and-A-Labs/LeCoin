@@ -1,16 +1,34 @@
 [
-    {'index': 1665436207.5683002, 
-    'timestamp': [], 
-    'transactions': '0', 
-    'previous_hash': '0', 
-    'block_hash': '66c1f978d80ce2da318e5c65283d0668fd5dfe593644ae9fd7496bd2f91be72b', 
-    'block_mine_hash': '110011011000001111110010111100011011000000011001110001011011010001100011000111001011100011001010010100000111101000001100110100011111101010111011111111001011001001101100100010010101110100111111101011101001001011010111101001011111001000110111110011100101011'
+    {
+        'index': 0, 
+        'timestamp': 1665446494.9920356,
+        'transactions': [
+            
+        ], 
+        'previous_hash': '0', 
+        'block_hash': 'a73dff09dd7b3dfea4023668d05251895820fa74d84621b54ba5a778fefe3cec'
     },
-    
-    {'index': 1665436207.571257, 
-    'timestamp': ['bobvWallet50apeWalletd3ac19ba-dffb-44a3-99ff-447a53bf2f03', 'apeWallet250bobWallet8602d87d-4834-4a3c-9bb3-752dbef9410c'], 
-    'transactions': <bound method BlockChain.get_recent_block of <coin.blockchain.BlockChain object at 0x000001516F8A2FD0>>, 
-    'previous_hash': '0', 'block_hash': '7fb823795fce2be0ddde8f769fbc4920a56226db6c883537ddc5427c28a7fa8d', 
-    'block_mine_hash':'111111110111000001000110111100101011111110011100010101111100000110111011101111010001111011101101001111110111100010010010010000010100101011000100010011011011011011011001000100000110101001101111101110111000101010000100111110000101000101001111111101010001101'
+
+    {
+        'index': 1, 
+        'timestamp': 1665446494.995029, 
+        'transactions': [
+            {
+                'self_sender': 'bobvWallet', 
+                'self_amount': '50', 
+                'self_reciver': 'apeWallet', 
+                'self_id': UUID('0170b683-cb69-4e20-8716-7e278c4680a0')
+            },
+
+            {
+                'self_sender': 'apeWallet', 
+                'self_amount': '250', 
+                'self_reciver': 'bobWallet', 
+                'self_id': UUID('f02bceb7-aa29-4fa6-8097-dbd533bd1a06')
+            }
+        ], 
+        
+        'previous_hash': 'a73dff09dd7b3dfea4023668d05251895820fa74d84621b54ba5a778fefe3cec', 
+        'block_hash': '7f23949cd843109710811190c040f6069e46614c08797784aad0aff818a37acc'
     }
 ]

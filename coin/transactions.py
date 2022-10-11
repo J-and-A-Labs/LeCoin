@@ -10,7 +10,12 @@ class Transaction:
         self.sender = sender
         self.reciver = reciver
         self.amount = amount
-        self.transaction_string = self.sender + str(self.amount) + self.reciver + str(self.id)
+        self.transactions = {
+            'self_sender': self.sender,
+            'self_amount': str(self.amount),
+            'self_reciver': self.reciver,
+            'self_id': self.id
+        }
     
     
 

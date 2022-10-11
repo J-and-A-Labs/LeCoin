@@ -5,7 +5,7 @@ from time import time
 import json
 from coin.chain import blockchain as bc
 from coin.pending import pending
-
+import pprint
 
 
 
@@ -58,10 +58,10 @@ class BlockChain:
         print("Transaction has been added to the queue.")
 
     def get_block_chain(self):
-        print(self.chain)
+        pprint.pprint(self.chain)
 
     def get_pending_transactions(self):
-        print(self.pending_transactions)
+        pprint.pprint(self.pending_transactions)
 
 
 
