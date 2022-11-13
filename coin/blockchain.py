@@ -6,7 +6,7 @@ import json
 from coin.chain import blockchain as bc
 from coin.pending import pending
 import pprint
-
+import rsa
 
 
 
@@ -53,15 +53,20 @@ class BlockChain:
         self.chain.append(chain)
         self.pending_transactions = []
 
-    def create_transaction(self, transaction):
-        self.pending_transactions.append(transaction)
-        print("Transaction has been added to the queue.")
+    def create_transaction(self, transaction, signature):
+
+        if rsa.verify(str(transaction).encode(), signature, transaction["sender"]) == "SHA-256":
+            self.pending_transactions.append(transaction)
+            print("Verifeid Transactions has been added to the queue.")
+        else:
+            print("Signature not verifyed")
+
 
     def get_block_chain(self):
-        pprint.pprint(self.chain)
+        print(self.chain)
 
     def get_pending_transactions(self):
-        pprint.pprint(self.pending_transactions)
+        print(self.pending_transactions)
 
 
 
