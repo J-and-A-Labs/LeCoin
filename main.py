@@ -7,7 +7,7 @@ LeCoin = BlockChain()
 
 
 
-if os.path.exists("publicKey.pem") and os.path.exists("privateKey.pem") == False:
+if os.path.exists("publicKey.pem") ==0:
     
     publicKey, privateKey = rsa.newkeys(1024)
 
