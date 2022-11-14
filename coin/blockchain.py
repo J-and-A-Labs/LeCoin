@@ -55,10 +55,11 @@ class BlockChain:
 
     def create_transaction(self, transaction, signature):
 
-        if rsa.verify(str(transaction).encode(), signature, transaction["sender"]) == "SHA-256":
-            self.pending_transactions.append(transaction)
-            print("Verifeid Transactions has been added to the queue.")
-        else:
+        try:
+            if rsa.verify(str(transaction).encode(), signature, transaction["sender"]) == "SHA-256":
+                self.pending_transactions.append(transaction)
+                print("Verifeid Transactions has been added to the queue.")
+        except:
             print("Signature not verifyed")
 
 
